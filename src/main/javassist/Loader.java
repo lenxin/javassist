@@ -421,10 +421,11 @@ public class Loader extends ClassLoader {
     }
 
     private boolean isDefinedPackage(String name) {
-        if (ClassFile.MAJOR_VERSION >= ClassFile.JAVA_9)
-            return getDefinedPackage(name) == null;
-        else
-            return getPackage(name) == null;
+//        if (ClassFile.MAJOR_VERSION >= ClassFile.JAVA_9)
+//            return getDefinedPackage(name) == null;
+//        else
+//            return getPackage(name) == null;
+        return false;
     }
 
     protected Class<?> loadClassByDelegation(String name)

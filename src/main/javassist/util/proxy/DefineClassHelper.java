@@ -288,15 +288,16 @@ public class DefineClassHelper {
     public static Class<?> toClass(Class<?> neighbor, byte[] bcode)
         throws CannotCompileException
     {
-        try {
-            DefineClassHelper.class.getModule().addReads(neighbor.getModule());
-            Lookup lookup = MethodHandles.lookup();
-            Lookup prvlookup = MethodHandles.privateLookupIn(neighbor, lookup);
-            return prvlookup.defineClass(bcode);
-        } catch (IllegalAccessException | IllegalArgumentException e) {
-            throw new CannotCompileException(e.getMessage() + ": " + neighbor.getName()
-                                             + " has no permission to define the class");
-        }
+//        try {
+//            DefineClassHelper.class.getModule().addReads(neighbor.getModule());
+//            Lookup lookup = MethodHandles.lookup();
+//            Lookup prvlookup = MethodHandles.privateLookupIn(neighbor, lookup);
+//            return prvlookup.defineClass(bcode);
+//        } catch (IllegalAccessException | IllegalArgumentException e) {
+//            throw new CannotCompileException(e.getMessage() + ": " + neighbor.getName()
+//                                             + " has no permission to define the class");
+//        }
+        return null;
     }
 
     /**
@@ -310,11 +311,12 @@ public class DefineClassHelper {
     public static Class<?> toClass(Lookup lookup, byte[] bcode)
         throws CannotCompileException
     {
-        try {
-            return lookup.defineClass(bcode);
-        } catch (IllegalAccessException | IllegalArgumentException e) {
-            throw new CannotCompileException(e.getMessage());
-        }
+//        try {
+//            return lookup.defineClass(bcode);
+//        } catch (IllegalAccessException | IllegalArgumentException e) {
+//            throw new CannotCompileException(e.getMessage());
+//        }
+        return null;
     }
 
     /**
@@ -325,14 +327,15 @@ public class DefineClassHelper {
     static Class<?> toPublicClass(String className, byte[] bcode)
         throws CannotCompileException
     {
-        try {
-            Lookup lookup = MethodHandles.lookup();
-            lookup = lookup.dropLookupMode(java.lang.invoke.MethodHandles.Lookup.PRIVATE);
-            return lookup.defineClass(bcode);
-        }
-        catch (Throwable t) {
-            throw new CannotCompileException(t);
-        }
+//        try {
+//            Lookup lookup = MethodHandles.lookup();
+//            lookup = lookup.dropLookupMode(java.lang.invoke.MethodHandles.Lookup.PRIVATE);
+//            return lookup.defineClass(bcode);
+//        }
+//        catch (Throwable t) {
+//            throw new CannotCompileException(t);
+//        }
+        return null;
     }
 
     private DefineClassHelper() {}
