@@ -17,6 +17,7 @@ public class Demo1 {
         ctClass.addField(ctField1);
 
         CtField ctField2 = new CtField(classPool.get("java.lang.String"), "ename", ctClass);
+        ctField2.setModifiers(Modifier.PRIVATE);
         ctClass.addField(ctField2);
 
         /*添加方法*/
